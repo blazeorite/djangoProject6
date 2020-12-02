@@ -28,9 +28,9 @@
                     </div>
                     <div class="col-12 col-md-6 ">
                         <div class="button-align">
-                            <a href="{% url 'complete' task.id %}"><button class="btn btn-success">Complete</button></a>
-                            <a href="{% url 'update' task.id %}"><button class="btn btn-primary">Update</button></a>
-                            <a href="{% url 'delete' task.id %}"><button class="btn btn-danger">Delete</button></a>
+                            <a class="btn btn-success" href="{% url 'complete' task.id %}">Complete</a>
+                            <a class="btn btn-primary" href="{% url 'update' task.id %}">Update</a>
+                            <a class="btn btn-danger" href="{% url 'delete' task.id %}">Delete</a>
                         </div>
 
 
@@ -50,8 +50,8 @@
                     </div>
                     <div class="col-12 col-md-6 ">
                         <div class="button-align">
-                            <a href="{% url 'update' task.id %}"><button class="btn btn-primary">Update</button></a>
-                            <a href="{% url 'delete' task.id %}"><button class="btn btn-danger">Delete</button></a>
+                            <a class="btn btn-primary" href="{% url 'update' task.id %}">Update</a>
+                            <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
                 </div>
