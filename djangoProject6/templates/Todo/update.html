@@ -1,23 +1,37 @@
 {% extends 'Todo/base.html' %}
 {% block body %}
 
-    <div class="card">
-      <div class="card-header">
-        Update Task
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="{% url 'index' %}" class="btn btn-primary"><- Go back</a>
-        <button type="submit">Update</button></a>
-      </div>
-    </div>
-
-    <h1>Update task</h1>
     <form action="{% url 'update' task.id %}" method="POST">
-        {{ form.as_p}}
+    {% csrf_token %}
+        <div class="card">
+          <div class="card-header">
+            Update Task
+          </div>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-10">
+                    <label for="id_task">Task:</label>
+                    <input type="text" class="form-control" name="task" value={{ task.task }} maxlength="100" required id="id_task"></p>
+                      <div>
+                  <a href="{% url 'index' %}" class="btn btn-info marginr"><- Go back</a>
+                  <button type="submit" class="btn btn-primary">Update</button></a>
+              </div>
+                  </div>
+                  <div class="col-2 text-center">
+                    <label for="id_complete">Completed:</label>
+                        <div >
+                            {% if task.complete %}
+                                <input  style="height:2rem; width:2rem" type="checkbox" name="complete" id="id_complete" checked>
+                            {% else %}
+                                <input  style="height:2rem; width:2rem" type="checkbox" name="complete" id="id_complete" >
+                            {% endif %}
+                        </div>
+                  </div>
+              </div>
 
-        <a href="{% url 'index' %}">GO back</a>
+
+          </div>
+        </div>
     </form>
 
 {% endblock %}

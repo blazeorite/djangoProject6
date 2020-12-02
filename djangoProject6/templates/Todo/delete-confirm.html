@@ -3,8 +3,18 @@
 {% block body %}
     <form action="{% url 'delete' task.id %}" method="POST">
         {% csrf_token %}
-        <h4>Are you sure you want to delete {{ task.task }}?</h4>
-        <a href="{% url 'index' %}">Go back</a>
-        <button type="submit" class="btn btn-danger">Yes I'm sure</button>
+        <div class="card">
+            <div class="card-header">
+                Delete task
+            </div>
+          <div class="card-body">
+            <h5 class="card-title">Are you sure you want to delete <span class="pink">{{ task.task }}</span>?</h5>
+            <div>
+                <a class="btn btn-info" href="{% url 'index' %}">No, go back</a>
+                <button type="submit" class="btn btn-danger">Yes, delete</button>
+            </div>
+
+          </div>
+        </div>
     </form>
 {% endblock %}

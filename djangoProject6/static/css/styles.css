@@ -1,3 +1,8 @@
+
+body{
+    background-color: #fafafa;
+}
+
 .task-name{
     font-weight: bold;
 }
@@ -31,9 +36,22 @@
 
 .strike-through{
     text-decoration: line-through;
+    color:gray;
 }
 .button-align{
     text-align: right;
+}
+
+.checkbox1{
+    font-size: 50px;
+}
+.marginr{
+    margin-right: 0.25rem;
+}
+
+.pink{
+    color: #f179b4;
+    background-color: #e5c7d0;
 }
 
 @media screen and (max-width: 768px ){
