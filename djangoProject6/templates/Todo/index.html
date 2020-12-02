@@ -1,0 +1,63 @@
+{% extends 'Todo/base.html' %}
+
+{% block body %}
+
+    <form action="{% url 'add' %} " method="post">
+        {% csrf_token %}
+            <div class="input-group mb-3">
+
+                <input type="text" class="form-control" name="task" maxlength="100" required="" id="id_task"
+                placeholder="Add Tasks" aria-label="Add Tasks" aria-describedby="button-add">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit" id="button-add">Add</button>
+                </div>
+            </div>
+    </form>
+
+    {% for task in tasks %}
+        {% if task.complete == False %}
+            <div class="card1">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="task-name">
+                            {{ task.task }}
+                        </div>
+                        <div class="created-at">
+                            Created at: {{ task.created_at }}
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 ">
+                        <div class="button-align">
+                            <a href="{% url 'complete' task.id %}"><button class="btn btn-success">Complete</button></a>
+                            <a href="{% url 'update' task.id %}"><button class="btn btn-primary">Update</button></a>
+                            <a href="{% url 'delete' task.id %}"><button class="btn btn-danger">Delete</button></a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="card2">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="task-name strike-through">
+                            {{ task.task }}
+                        </div>
+                        <div class="created-at strike-through">
+                            Created at: {{ task.created_at }}
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 ">
+                        <div class="button-align">
+                            <a href="{% url 'update' task.id %}"><button class="btn btn-primary">Update</button></a>
+                            <a href="{% url 'delete' task.id %}"><button class="btn btn-danger">Delete</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}

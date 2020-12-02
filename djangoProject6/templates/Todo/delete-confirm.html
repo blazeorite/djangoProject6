@@ -1,0 +1,10 @@
+{% extends 'Todo/base.html' %}
+
+{% block body %}
+    <form action="{% url 'delete' task.id %}" method="POST">
+        {% csrf_token %}
+        <h4>Are you sure you want to delete {{ task.task }}?</h4>
+        <a href="{% url 'index' %}">Go back</a>
+        <button type="submit" class="btn btn-danger">Yes I'm sure</button>
+    </form>
+{% endblock %}

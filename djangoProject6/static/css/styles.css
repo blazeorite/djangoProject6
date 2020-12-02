@@ -1,0 +1,44 @@
+.task-name{
+    font-weight: bold;
+}
+
+.created-at{
+    font-size: 0.7rem;
+    color:gray;
+}
+
+.card1{
+    border:1px solid silver;
+    border-radius: 0.25rem;
+    background-color: white;
+    margin:10px;
+    padding: 10px;
+}
+
+.heading{
+    color: gray;
+    font-size: 4rem;
+    margin-top: 5%;
+}
+
+.card2{
+    border:1px solid silver;
+    border-radius: 0.25rem;
+    background-color: #eeeeee;
+    margin:10px;
+    padding: 10px;
+}
+
+.strike-through{
+    text-decoration: line-through;
+}
+.button-align{
+    text-align: right;
+}
+
+@media screen and (max-width: 768px ){
+    .button-align{
+        text-align: left;
+        margin-top: 1rem;
+    }
+}
